@@ -10,17 +10,17 @@ class Job(models.Model):
         return self.jobName
 
 class Independent(models.Model):
-    imageFile = models.ImageField(upload_to='./polls/templates/polls/images',null=True)
+    imageFile = models.ImageField(upload_to='BuscoAyuda/static/web/images',null=True)
     yearsOfExperience = models.IntegerField(blank=True)
     phoneNumber = models.CharField(max_length=20,blank=True)
     user = models.OneToOneField(User,null=True)
-    job = models.OneToOneField(Job,null=True)
+    job = models.ForeignKey(Job,null=True)
 
 class Comment(models.Model):
     independent = models.ForeignKey(Independent,null=True)
     comment = models.CharField(max_length=1000,blank=True)
     userEmail = models.CharField(max_length=50,blank=True)
-    created = models.DateTimeField(editable=False)
+    created = models.DateTimeField(editable=False,default=timezone.now())
     def save(self, *args, **kwargs):
         if not self.id:
             self.created = timezone.now()

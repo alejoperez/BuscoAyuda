@@ -18,8 +18,11 @@ from django.conf.urls import include, url
 import polls.urls
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import RedirectView
 
 urlpatterns = [
+    #url(r'^$', RedirectView.as_view(url='http://127.0.0.1:8000/static/web/index.html'), name='index'),
+    url(r'^$', RedirectView.as_view(url='https://ancient-plains-90032.herokuapp.com/static/web/index.html'), name='index'),
     url(r'^polls/', include(polls.urls, namespace='app')),
     url(r'^admin/', admin.site.urls),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.ADMIN_MEDIA_PREFIX, document_root=settings.ADMIN_MEDIA_PREFIX)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

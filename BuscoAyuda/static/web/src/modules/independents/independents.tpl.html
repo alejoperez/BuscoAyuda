@@ -1,0 +1,21 @@
+<div class="container" ng-controller="independentsCtrl as ctrl" ng-init="ctrl.getIndependents()">
+    <div class="col-sm-12">
+        <div ng-repeat="record in independents">
+            <div class="col-md-4 col-sm-6 col-lg-4 well">
+                <div class="caption" >
+                    <p align="center"><strong>{{record.fields.job | uppercase}}</strong></p>
+                </div>
+                <div class="col-md-12">
+                    <div class="img-thumbnail" id="image" ng-if="record.fields.imageFile">
+                        <a ng-href="{{ record.fields.imageFile.replace('BuscoAyuda','') }}" target="_blank"><img class="img-responsive" style="height: 20vmax;" ng-src="{{ record.fields.imageFile.replace('BuscoAyuda','') }}" alt="{{ record.fields.imageFile.replace('BuscoAyuda','') }}"></a>
+                    </div>
+                </div>
+                <div class="caption" >
+                    <p><strong>Usuario:</strong> {{record.fields.user[0]}}</p>
+                    <p><strong>Años de Experiencia:</strong> {{record.fields.yearsOfExperience}}</p>
+                    <p><strong>Teléfono:</strong> {{record.fields.phoneNumber}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
