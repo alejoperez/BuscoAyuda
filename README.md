@@ -1,7 +1,7 @@
-# BuscoAyuda
-Python/Django
+
+# Python/Django
 
 
-Heroku url
+## Heroku url
 
 https://ancient-plains-90032.herokuapp.com/ 
