@@ -9,7 +9,7 @@
 
         $routeProvider
             .when('/independents', {
-                templateUrl: 'src/modules/independents/independents.tpl.html',
+                templateUrl: 'static/src/modules/independents/independents.tpl.html',
                 controller: 'independentsCtrl',
                 controllerAs: 'ctrl'
             })

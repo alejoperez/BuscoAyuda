@@ -1,9 +1,12 @@
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from .models import Independent
 from django.core import serializers
 from django.http import HttpResponse
+from .models import Independent
 
 # Create your views here.
+def index(request):
+    return render(request, 'index.html')
 
 @csrf_exempt
 def getIndependents(request):
