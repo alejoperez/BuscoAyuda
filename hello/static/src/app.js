@@ -2,7 +2,8 @@
 
     var helpApp = ng.module('helpApp', [
         'ngRoute',
-        'independentsModule'
+        'independentsModule',
+        'profileModule'
     ]);
 
     helpApp.config(['$routeProvider', function ($routeProvider) {
@@ -11,6 +12,11 @@
             .when('/independents', {
                 templateUrl: 'static/src/modules/independents/independents.tpl.html',
                 controller: 'independentsCtrl',
+                controllerAs: 'ctrl'
+            })
+            .when('/profile', {
+                templateUrl: 'static/src/modules/profile/profile.tpl.html',
+                controller: 'profileCtrl',
                 controllerAs: 'ctrl'
             })
             .otherwise('/independents');
