@@ -1,4 +1,4 @@
 # Python/Django
 
 ### Heroku
-https://shielded-headland-12840.herokuapp.com/
+http://ancient-plains-90032.herokuapp.com/
