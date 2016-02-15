@@ -14,6 +14,10 @@ urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^independents', hello.views.getIndependents, name='independents'),
     url(r'^jobs', hello.views.getJobs, name='jobs'),
+    url(r'^login', hello.views.loginUser, name='login'),
+    url(r'^islogged', hello.views.isLoggedUser, name='isLoggedUser'),
+    url(r'^logout', hello.views.logoutUser, name='logout'),
+    url(r'^profile', hello.views.profile, name='profile'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^register/', hello.views.registerIndependent, name='registerIndependent'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
