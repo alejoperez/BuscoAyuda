@@ -21,6 +21,14 @@
     <!-- Angular JS files -->
     <script src="static/src/app.js"></script>
 
+    <script src="static/src/modules/main/main.mod.js"></script>
+    <script src="static/src/modules/main/main.svc.js"></script>
+    <script src="static/src/modules/main/main.ctrl.js"></script>
+
+    <script src="static/src/modules/login/login.mod.js"></script>
+    <script src="static/src/modules/login/login.svc.js"></script>
+    <script src="static/src/modules/login/login.ctrl.js"></script>
+
     <script src="static/src/modules/independents/independents.mod.js"></script>
     <script src="static/src/modules/independents/independents.svc.js"></script>
     <script src="static/src/modules/independents/independents.ctrl.js"></script>
@@ -31,17 +39,24 @@
 
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" ng-controller="mainCtrl as ctrl" ng-init="ctrl.isLogged()">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#/independents"><i class="fa fa-angellist"> Busco Ayuda</i></a>
         </div>
         <div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/profile"><i class="fa fa-user"> Mi Perfil</i></a></li>
-				<li><a href="#/register"><i class="fa fa-user"> Registrarte</i></a></li>
-                <li><a href="#/login"><i class="fa fa-sign-in"> Iniciar Sesión</i></a></li>
-            </ul>
+            <div ng-if="message.logged">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/profile"><i class="fa fa-user"> Mi Perfil</i></a></li>
+                    <li ><a ng-click="ctrl.logOut()" href="#/"><i class="fa fa-sign-out"> Cerrar Sesión</i></a></li>
+                </ul>
+            </div>
+            <div ng-if="!message.logged">
+                <ul class="nav navbar-nav navbar-right">
+				    <li><a href="#/register"><i class="fa fa-user"> Registrarte</i></a></li>
+                    <li><a href="#/login"><i class="fa fa-sign-in"> Iniciar Sesión</i></a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
