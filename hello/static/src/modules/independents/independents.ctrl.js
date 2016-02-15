@@ -1,7 +1,7 @@
 (function (ng) {
     var mod = ng.module('independentsModule');
 
-    mod.controller('independentsCtrl', ['$scope', 'independentsService', function ($scope, independentsService) {
+    mod.controller('independentsCtrl', ['$scope', 'independentsService', '$window', function ($scope, independentsService, $window) {
 
         function responseError(response) {
             console.log(response);
@@ -25,7 +25,7 @@
                 'username':angular.element('#username').val(),
                 'password':angular.element('#password').val()
             }).then(function (response) {
-                //TODO: Show success
+                $window.location.href = '/#/independents';
             }, responseError);
         };
 
