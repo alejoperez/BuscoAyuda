@@ -124,7 +124,7 @@ def registerIndependent(request):
 def registerComment(request):
 
     user = request.user
-    independent = Independent.objects.get(user=user)
+    independent = Independent.objects.get(user_id=3)
 
     if request.method == 'POST':
         objs = json.loads(request.body)
@@ -132,7 +132,7 @@ def registerComment(request):
         userEmail = objs['userEmail']
 
         commentModel = Comment()
-        commentModel.independent=independent.id
+        commentModel.independent=independent
         commentModel.comment=comment
         commentModel.userEmail=userEmail
         commentModel.save()
