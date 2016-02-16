@@ -23,7 +23,7 @@
             }, responseError);
 
             profileService.getProfile().then(function (response) {
-                console.log(response.data[0].fields.name);
+                console.log(response.data[0]);
                 $scope.independent = response.data[0];
             }, responseError);
 

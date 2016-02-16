@@ -15,7 +15,7 @@
                     phone_number: independent.fields.phoneNumber,
                     email: independent.fields.email,
                     image:  independent.fields.imageFileUrl,
-                    job:  independent.fields.jobName
+                    job:  independent.fields.job
 
                 }
             });
