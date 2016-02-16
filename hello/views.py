@@ -172,14 +172,10 @@ def detail(request):
     independent = Independent.objects.get(user=user)
 
     if request.method == 'POST':
-        independentJson = json.loads(request.body.decode('utf-8'))
+        independentJson = json.loads(request.body)
+        idIndependent = independentJson['idIndependent']
 
-        independent.name = independentJson.get('name')
-        independent.lastName = independentJson.get('last_name')
-        independent.yearsOfExperience = independentJson.get('experience')
-        independent.phoneNumber = independentJson.get('phone_number')
-        independent.email = independentJson.get('email')
-        independent.imageFileUrl = independentJson.get('image')
+        independent = Independent.objects.filter(id=idIndependent)
 
         jobQS = Job.objects.filter(jobName=str(independentJson.get('job')).lstrip().rstrip())
         jobsList = list(jobQS[:1])
