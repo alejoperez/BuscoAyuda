@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^profile', hello.views.profile, name='profile'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^register/', hello.views.registerIndependent, name='registerIndependent'),
+    url(r'^comments/', hello.views.registerComment, name='registerComment'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

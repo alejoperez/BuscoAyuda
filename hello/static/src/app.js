@@ -5,7 +5,8 @@
         'independentsModule',
         'profileModule',
         'mainModule',
-        'loginModule'
+        'loginModule',
+        'commentsModule'
     ]);
 
     helpApp.config(['$routeProvider', function ($routeProvider) {
@@ -29,6 +30,11 @@
             .when('/register', {
                 templateUrl: 'static/src/modules/independents/registration.tpl.html',
                 controller: 'independentsCtrl',
+                controllerAs: 'ctrl'
+            })
+            .when('/comments', {
+                templateUrl: 'static/src/modules/comments/comments.tpl.html',
+                controller: 'commentsCtrl',
                 controllerAs: 'ctrl'
             })
             .otherwise('/independents');

@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from django.contrib.auth.models import User
 from django.http import HttpResponse, JsonResponse
-from .models import Independent, Job
+from .models import Independent, Job, Comment
 import json
 
 
@@ -124,3 +124,26 @@ def registerIndependent(request):
 
 
     return HttpResponse(status=200)
+
+@csrf_exempt
+def registerComment(request):
+
+    user = request.user
+    independent = Independent.objects.get(user_id=3)
+
+    if request.method == 'POST':
+        objs = json.loads(request.body)
+        comment = objs['comment']
+        userEmail = objs['userEmail']
+
+        commentModel = Comment()
+        commentModel.independent=independent
+        commentModel.comment=comment
+        commentModel.userEmail=userEmail
+        commentModel.save()
+        print 'Se crea comentario'
+
+    return HttpResponse(status=200)
+
+
+
