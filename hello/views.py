@@ -166,4 +166,27 @@ def registerComment(request):
     return HttpResponse(status=200)
 
 
+@csrf_exempt
+def detail(request):
+    user = request.user
+    independent = Independent.objects.get(user=user)
 
+    if request.method == 'POST':
+        independentJson = json.loads(request.body.decode('utf-8'))
+
+        independent.name = independentJson.get('name')
+        independent.lastName = independentJson.get('last_name')
+        independent.yearsOfExperience = independentJson.get('experience')
+        independent.phoneNumber = independentJson.get('phone_number')
+        independent.email = independentJson.get('email')
+        independent.imageFileUrl = independentJson.get('image')
+
+        jobQS = Job.objects.filter(jobName=str(independentJson.get('job')).lstrip().rstrip())
+        jobsList = list(jobQS[:1])
+        jobObject = jobsList[0]
+
+        independent.job = jobObject
+        independent.job.save()
+        independent.save()
+
+    return HttpResponse(serializers.serialize("json",{independent},use_natural_foreign_keys=True, use_natural_primary_keys=True))
