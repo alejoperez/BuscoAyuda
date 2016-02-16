@@ -71,7 +71,12 @@ def profile(request):
         independent.phoneNumber = jsonUser.get('phone_number')
         independent.email = jsonUser.get('email')
         independent.imageFileUrl = jsonUser.get('image')
-        independent.job = Job(jsonUser.get('job'))
+
+        jobQS = Job.objects.filter(jobName=str(jsonUser.get('job')).lstrip().rstrip())
+        jobsList = list(jobQS[:1])
+        jobObject = jobsList[0]
+
+        independent.job = jobObject
         independent.job.save()
         independent.save()
 
