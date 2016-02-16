@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'BuscaAyuda',
-        'USER': 'postgres',
-        'PASSWORD': 'mati',
-        'HOST': '127.0.0.1',
+        'NAME': 'dacb3prb9oleik',
+        'USER': 'yydvvdrlvzhjrv',
+        'PASSWORD': 'C0gd9FhR6GXjvN_OEL23cULgaZ',
+        'HOST': 'ec2-54-83-204-228.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -143,3 +143,10 @@ STATICFILES_DIRS = (
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# EMAIL SETTINGS
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'XXX@gmail.com'
+EMAIL_HOST_PASSWORD = 'XXXX'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

@@ -5,6 +5,7 @@ from django.core import serializers
 from django.contrib.auth.models import User
 from django.http import HttpResponse, JsonResponse
 from .models import Independent, Job, Comment
+from django.core.mail import send_mail, EmailMultiAlternatives
 import json
 
 
@@ -123,20 +124,39 @@ def registerIndependent(request):
 @csrf_exempt
 def registerComment(request):
 
-    user = request.user
-    independent = Independent.objects.get(user_id=3)
-
     if request.method == 'POST':
         objs = json.loads(request.body)
+        idIndependent = objs['idIndependent']
         comment = objs['comment']
         userEmail = objs['userEmail']
 
+        comentario = "<strong>Comentario:</strong> %s <br><br><strong>Enviado por:</strong> %s" % (comment, userEmail)
+
+        independent = Independent.objects.get(id=idIndependent)
+
+        emailIndependent = independent.email
+
         commentModel = Comment()
         commentModel.independent=independent
-        commentModel.comment=comment
+        commentModel.comment=comentario
         commentModel.userEmail=userEmail
         commentModel.save()
-        print 'Se crea comentario'
+
+        print 'Se crea comentario para el idIndependent: '+ idIndependent
+
+        #send_mail('Busco Ayuda - Comentario', comentario, userEmail, [emailIndependent], fail_silently=False)
+
+        asunto = 'Busco Ayuda - Comentario'
+        text_content = ''
+        html_content = comentario
+        from_email = userEmail
+        to = emailIndependent
+
+        mensaje = EmailMultiAlternatives(asunto, text_content, from_email, [to])
+        mensaje.attach_alternative(html_content, "text/html")
+        mensaje.send()
+
+        print 'Se envia el correo electronico a: '+ emailIndependent
 
     return HttpResponse(status=200)
 

@@ -32,7 +32,7 @@
                 controller: 'independentsCtrl',
                 controllerAs: 'ctrl'
             })
-            .when('/comments', {
+            .when('/comments/:idIndependent', {
                 templateUrl: 'static/src/modules/comments/comments.tpl.html',
                 controller: 'commentsCtrl',
                 controllerAs: 'ctrl'

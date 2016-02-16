@@ -11,7 +11,7 @@
             return $http({
                 method: 'POST',
                 //url: 'https://ancient-plains-90032.herokuapp.com/comment'
-                url: 'http://127.0.0.1:8000/comments/',
+                url: 'http://127.0.0.1:8000/comments/:idIndependent' ,
                 data:data
             });
         };
