@@ -1,6 +1,19 @@
-<div class="container" ng-controller="independentsCtrl as ctrl" ng-init="ctrl.getIndependents()">
+<div class="container" ng-controller="independentsCtrl as ctrl" ng-init="ctrl.getIndependents()"
+     xmlns="http://www.w3.org/1999/html">
     <div class="col-sm-12">
-        <div ng-repeat="record in independents">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="q" placeholder="Buscar Independiente" ng-model="search"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Buscar</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div ng-repeat="record in independents | filter: search">
+
             <div class="col-md-4 col-sm-6 col-lg-4 well">
                 <div class="caption" >
                     <p align="center"><strong>{{record.fields.job | uppercase}}</strong></p>
