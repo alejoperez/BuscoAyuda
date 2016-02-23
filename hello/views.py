@@ -22,7 +22,7 @@ def getIndependents(request):
 
 @csrf_exempt
 def getProfile(request,id):
-    profile = Independent.objects.filter(user__pk=id)
+    profile = Independent.objects.all().filter(pk=id)
     return HttpResponse(serializers.serialize("json",profile))
 
 @csrf_exempt
