@@ -23,7 +23,7 @@
             }, responseError);
 
             detailService.getDetail($routeParams.idIndependent).then(function (response) {
-                console.log(response.data[0]);
+                console.log(response.data);
                 $scope.independent = response.data[0];
             }, responseError);
 
