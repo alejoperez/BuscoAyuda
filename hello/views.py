@@ -21,6 +21,11 @@ def getIndependents(request):
 
 
 @csrf_exempt
+def getProfile(request,id):
+    profile = Independent.objects.filter(user__pk=id)
+    return HttpResponse(serializers.serialize("json",profile))
+
+@csrf_exempt
 def getJobs(request):
     jobs = Job.objects.all()
     return HttpResponse(serializers.serialize("json",jobs))
