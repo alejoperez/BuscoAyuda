@@ -29,7 +29,7 @@
             return $http({
                 method: 'GET',
                 url: 'https://ancient-plains-90032.herokuapp.com/getProfile/'+id
-                //url: 'http://127.0.0.1:8000/detail'
+                //url: 'http://127.0.0.1:8000/getProfile/'+id
             });
         }
 

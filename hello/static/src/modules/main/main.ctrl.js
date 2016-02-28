@@ -10,6 +10,7 @@
         this.isLogged = function () {
             return mainService.isLogged().then(function (response) {
                 $scope.message = response.data;
+                console.log($scope.message)
             }, responseError);
         };
 
