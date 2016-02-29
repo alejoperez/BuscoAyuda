@@ -78,16 +78,18 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+
 # Informacion de BD para ambiente Produccion
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dacb3prb9oleik',
-        'USER': 'yydvvdrlvzhjrv',
-        'PASSWORD': 'C0gd9FhR6GXjvN_OEL23cULgaZ',
-        'HOST': 'ec2-54-83-204-228.compute-1.amazonaws.com',
-        'PORT': '5432',
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': os.environ['DATABASE_NAME'],
+       'USER': os.environ['DATABASE_USER'],
+       'PASSWORD': os.environ['DATABASE_PASSWORD'],
+       'HOST': os.environ['DATABASE_HOST'],
+       'PORT': os.environ['DATABASE_PORT'],
     }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
