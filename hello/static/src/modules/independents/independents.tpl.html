@@ -6,7 +6,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" name="q" placeholder="Buscar Independiente" ng-model="search"/>
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Buscar</button>
+                        <button class="btn btn-success" type="button"><i class="fa fa-search"> Buscar</i></button>
                     </span>
                 </div>
             </div>
@@ -28,8 +28,8 @@
                     <p><strong>Años de Experiencia:</strong> {{record.fields.yearsOfExperience}}</p>
                     <p><strong>Teléfono:</strong> {{record.fields.phoneNumber}}</p>
                     <p><strong>Correo:</strong> {{record.fields.email}}</p>
-                    <p><a href="#/comments/{{record.pk}}">Enviar comentario</a></p>
-                    <p><a href="#/detail/{{record.pk}}">Detalle independiente</a></p>
+                    <p ><a class="btn btn-primary" href="#/comments/{{record.pk}}">Enviar comentario</a></p>
+                    <p><a class="btn btn-info" href="#/detail/{{record.pk}}">Detalle independiente</a></p>
                 </div>
             </div>
         </div>

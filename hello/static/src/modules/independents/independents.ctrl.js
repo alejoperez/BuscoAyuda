@@ -14,19 +14,33 @@
         };
 
         this.registerIndependent = function(){
-            return independentsService.registerIndependent({
-                'name':angular.element('#name').val(),
-                'lastName':angular.element('#last_name').val(),
-                'job':angular.element('#job').val(),
-                'yearsOfExperience':angular.element('#years_of_experience').val(),
-                'phoneNumber':angular.element('#phone_number').val(),
-                'email':angular.element('#email').val(),
-                'imageFileUrl':angular.element('#imageFileUrl').val(),
-                'username':angular.element('#username').val(),
-                'password':angular.element('#password').val()
-            }).then(function (response) {
-                $window.location.href = '/#/independents';
-            }, responseError);
+            var name = angular.element('#name').val();
+            var lastName = angular.element('#last_name').val();
+            var job = angular.element('#job').val().trim();
+            var yearsOfExperience = angular.element('#years_of_experience').val();
+            var phoneNumber = angular.element('#phone_number').val();
+            var email = angular.element('#email').val();
+            var imageFileUrl = angular.element('#imageFileUrl').val();
+            var username = angular.element('#username').val();
+            var password = angular.element('#password').val();
+            console.log(job);
+            if (name && lastName && job && yearsOfExperience && phoneNumber && email && imageFileUrl && username && password){
+                console.log('antes de regirto 2');
+                return independentsService.registerIndependent({
+                                'name': name,
+                                'lastName': lastName,
+                                'job': job,
+                                'yearsOfExperience': yearsOfExperience,
+                                'phoneNumber': phoneNumber,
+                                'email': email,
+                                'imageFileUrl': imageFileUrl,
+                                'username': username,
+                                'password': password
+                        }).then(function (response) {
+                        console.log('retorna registro');
+                                $window.location.href = '/#/independents';
+                            }, responseError);
+                }
         };
 
         this.getJobs = function () {

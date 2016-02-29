@@ -21,6 +21,14 @@ def getIndependents(request):
 
 
 @csrf_exempt
+def getProfile(request,id):
+    if request.method == 'GET':
+        print id
+        profile = Independent.objects.all().filter(pk=id)
+        print profile
+        return HttpResponse(serializers.serialize("json",profile))
+
+@csrf_exempt
 def getJobs(request):
     jobs = Job.objects.all()
     return HttpResponse(serializers.serialize("json",jobs))
@@ -41,7 +49,8 @@ def loginUser(request):
             message = 'OK'
         else:
             message = 'Usuario y/o clave invalida'
-
+    print message
+    print request.user.is_authenticated()
     return JsonResponse({'message':message})
 
 @csrf_exempt
@@ -50,6 +59,7 @@ def isLoggedUser(request):
         logged = True
     else:
         logged = False
+    print logged
     return JsonResponse({'logged':logged})
 
 @csrf_exempt
@@ -85,9 +95,11 @@ def profile(request):
 
 @csrf_exempt
 def registerIndependent(request):
+    print 'antes del request'
     if request.method == 'POST':
+        print 'POST'
         objs = json.loads(request.body)
-
+        print objs
         jobString = str(objs['job']).lstrip().rstrip()
         jobQS = Job.objects.filter(jobName=jobString)
         jobsList = list(jobQS[:1])

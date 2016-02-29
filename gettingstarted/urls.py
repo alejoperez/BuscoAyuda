@@ -18,8 +18,9 @@ urlpatterns = [
     url(r'^islogged', hello.views.isLoggedUser, name='isLoggedUser'),
     url(r'^logout', hello.views.logoutUser, name='logout'),
     url(r'^profile', hello.views.profile, name='profile'),
+    url(r'^getProfile/(\d+)', hello.views.getProfile, name='getProfile'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^register/', hello.views.registerIndependent, name='registerIndependent'),
+    url(r'^register', hello.views.registerIndependent, name='registerIndependent'),
     url(r'^comments/', hello.views.registerComment, name='registerComment'),
     url(r'^detail', hello.views.detail, name='detail'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
