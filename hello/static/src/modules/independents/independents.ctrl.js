@@ -2,7 +2,14 @@
     var mod = ng.module('independentsModule');
 
     mod.controller('independentsCtrl', ['$scope', 'independentsService', '$window', function ($scope, independentsService, $window) {
-
+        function validarEmail(valor) {
+          if (/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(valor)){
+           return true;
+          } else {
+           alert("La dirección de email es incorrecta, debe tener el formato usuario@dominio");
+          }
+        }
+        
         function responseError(response) {
             console.log(response);
         }
@@ -24,7 +31,7 @@
             var username = angular.element('#username').val();
             var password = angular.element('#password').val();
             console.log(job);
-            if (name && lastName && job && yearsOfExperience && phoneNumber && email && imageFileUrl && username && password){
+            if (name && lastName && job && yearsOfExperience && phoneNumber && validarEmail(email)==true && imageFileUrl && username && password){
                 console.log('antes de regirto 2');
                 return independentsService.registerIndependent({
                                 'name': name,

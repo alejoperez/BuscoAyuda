@@ -5,14 +5,15 @@
 
                 <form id="formComments" name="formComments">
                     <div class="form-group">
-                        <label class="control-label" for="comment">Comentario:</label>
-                        <textarea id="comment" name="comment" class="form-control" rows="5" cols="40" ng-required="true">{{ name }}</textarea>
-                    </div>
-                    <div class="form-group">
                         <label class="control-label" for="userEmail">E-mail:</label>
                         <input type="email" id="userEmail" name="userEmail" class="form-control" value="{{ name }}" ng-required="true">
                     </div>
-                    <button type="submit" ng-disabled="formComments.$invalid" class="btn btn-primary" ng-click = "ctrl.registerComment()">Comentar</button>
+                    <div class="form-group">
+                        <label class="control-label" for="comment">Comentario:</label>
+                        <textarea id="comment" name="comment" class="form-control" rows="5" cols="40" ng-required="true">{{ name }}</textarea>
+                    </div>
+                    <span id="areaMensaje" style="color:red;"></span>
+                    <button type="submit" ng-disabled="formComments.$invalid" class="btn btn-primary" ng-click = "ctrl.registerComment()">Enviar</button>
                     <a href="#/independents" class="btn btn-default">Volver</a>
                 </form>
 

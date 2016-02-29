@@ -8,7 +8,6 @@ from .models import Independent, Job, Comment
 from django.core.mail import send_mail, EmailMultiAlternatives
 import json
 
-
 # Create your views here.
 @csrf_exempt
 def index(request):

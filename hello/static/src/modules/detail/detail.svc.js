@@ -10,8 +10,7 @@
         this.editDetail = function (independent) {
             return $http({
                 method: 'POST',
-                url: 'https://ancient-plains-90032.herokuapp.com/detail',
-                //url: 'http://127.0.0.1:8000/detail',
+                url: '/detail',
                 data:{
                     name: independent.fields.name,
                     last_name: independent.fields.lastName,
@@ -28,16 +27,14 @@
         this.getDetail = function (id) {
             return $http({
                 method: 'GET',
-                url: 'https://ancient-plains-90032.herokuapp.com/getProfile/'+id
-                //url: 'http://127.0.0.1:8000/getProfile/'+id
+                url: '/getProfile/'+id
             });
         }
 
         this.getJobs = function () {
             return $http({
                 method: 'GET',
-                url: 'https://ancient-plains-90032.herokuapp.com/jobs'
-                //url: 'http://127.0.0.1:8000/jobs'
+                url: '/jobs'
             });
         };
 

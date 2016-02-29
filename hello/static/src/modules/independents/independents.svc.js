@@ -10,16 +10,14 @@
         this.getIndependents = function () {
             return $http({
                 method: 'GET',
-                //url: 'https://ancient-plains-90032.herokuapp.com/independents'
-                url: 'http://127.0.0.1:8000/independents'
+                url: '/independents'
             });
         };
 
         this.registerIndependent = function (data) {
             return $http({
                 method: 'POST',
-                //url: 'https://ancient-plains-90032.herokuapp.com/register',
-                url: 'http://127.0.0.1:8000/register',
+                url: '/register',
                 data:data
             });
         };
@@ -27,8 +25,7 @@
         this.getJobs = function () {
             return $http({
                 method: 'GET',
-                //url: 'https://ancient-plains-90032.herokuapp.com/jobs'
-                url: 'http://127.0.0.1:8000/jobs'
+                url: '/jobs'
             });
         };
 
