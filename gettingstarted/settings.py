@@ -81,14 +81,14 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 
 # Informacion de BD para ambiente Produccion
 DATABASES = {
-    'default': {
+   'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'BuscaAyuda',
-        'USER': 'postgres',
-        'PASSWORD': 'mati',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+       'NAME': os.environ['DATABASE_NAME'],
+       'USER': os.environ['DATABASE_USER'],
+       'PASSWORD': os.environ['DATABASE_PASSWORD'],
+       'HOST': os.environ['DATABASE_HOST'],
+       'PORT': os.environ['DATABASE_PORT'],
+   }
 }
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
