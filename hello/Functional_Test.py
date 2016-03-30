@@ -19,30 +19,35 @@ class FunctionalTest(TestCase):
         link = self.browser.find_element_by_link_text('Registrarte')
         link.click()
 
-        name = self.browser.find_element_by_id('name')
+        name = self.browser.find_element_by_id('id_name')
         name.send_keys('ALejo')
 
-        last_name = self.browser.find_element_by_id('last_name')
+        last_name = self.browser.find_element_by_id('id_last_name')
         last_name.send_keys('perez')
 
-        years = self.browser.find_element_by_id('years_of_experience')
+        years = self.browser.find_element_by_id('id_years_of_experience')
         years.send_keys('3')
 
-        phone_number = self.browser.find_element_by_id('phone_number')
+        phone_number = self.browser.find_element_by_id('id_phone_number')
         phone_number.send_keys('3103211293')
 
-        email = self.browser.find_element_by_id('email')
+        email = self.browser.find_element_by_id('id_email')
         email.send_keys('email@eae.dd')
 
-        imageFileUrl = self.browser.find_element_by_id('imageFileUrl')
+        imageFileUrl = self.browser.find_element_by_id('id_imageFileUrl')
         imageFileUrl.send_keys('http://evolvedms.com/images/ARP-Logo-EvolvedMS.jpg')
 
-        username = self.browser.find_element_by_id('username')
+        username = self.browser.find_element_by_id('id_username')
         username.send_keys('username')
 
-        password = self.browser.find_element_by_id('password')
+        password = self.browser.find_element_by_id('id_password')
         password.send_keys('password')
 
-        #self.browser.find_element_by_id('password').click()
+        self.browser.find_element_by_id('id_button_register').click()
+        self.browser.implicitly_wait(3)
+
+        self.assertIsNone(self.browser.find_element_by_link_text('id_button_register').click())
+
+
 
 
