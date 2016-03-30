@@ -54,6 +54,6 @@ class FunctionalTest(TestCase):
         link = self.browser.find_element_by_link_text('Mi Perfil')
         link.click()
 
-        self.assertIn(self.browser.find_element_by_id(''))
+        self.assertIsNotNone(self.browser.find_element_by_link_text('Imagen de Perfil URL:'))
 
 
