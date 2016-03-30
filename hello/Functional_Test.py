@@ -46,8 +46,14 @@ class FunctionalTest(TestCase):
         self.browser.find_element_by_id('id_button_register').click()
         self.browser.implicitly_wait(3)
 
-        self.assertIsNone(self.browser.find_element_by_link_text('id_button_register').click())
+        self.assertIsNone(self.browser.find_element_by_id('id_button_register'))
 
 
+    def test_ver_detalle(self):
+
+        link = self.browser.find_element_by_link_text('Mi Perfil')
+        link.click()
+
+        self.assertIn(self.browser.find_element_by_id(''))
 
 
