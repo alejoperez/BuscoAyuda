@@ -24,12 +24,12 @@
                     </div>
                 </div>
                 <div class="caption" >
-                    <p><strong>Nombre:</strong> {{record.fields.name }} {{record.fields.lastName }}</p>
+                    <p id="id_nombre"><strong>Nombre:</strong> {{record.fields.name }} {{record.fields.lastName }}</p>
                     <p><strong>Años de Experiencia:</strong> {{record.fields.yearsOfExperience}}</p>
                     <p><strong>Teléfono:</strong> {{record.fields.phoneNumber}}</p>
                     <p><strong>Correo:</strong> {{record.fields.email}}</p>
                     <p ><a class="btn btn-primary" href="#/comments/{{record.pk}}">Enviar comentario</a></p>
-                    <p><a class="btn btn-info" href="#/detail/{{record.pk}}">Detalle independiente</a></p>
+                    <p><a id="id_detalle{{ record.pk }}" class="btn btn-info" href="#/detail/{{record.pk}}">Detalle independiente</a></p>
                 </div>
             </div>
         </div>

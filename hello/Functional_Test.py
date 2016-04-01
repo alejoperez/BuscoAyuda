@@ -13,7 +13,7 @@ class FunctionalTest(TestCase):
     def test_title(self):
         self.browser.get('http://localhost:8000')
         self.assertIn('Busco Ayuda',self.browser.title)
-
+'''
     def test_register(self):
         self.browser.get('http://localhost:8000')
         link = self.browser.find_element_by_link_text('Registrarte')
@@ -48,12 +48,13 @@ class FunctionalTest(TestCase):
 
         self.assertIsNone(self.browser.find_element_by_id('id_button_register'))
 
+'''
 
-    def test_ver_detalle(self):
+def test_ver_detalle(self):
 
-        link = self.browser.find_element_by_link_text('Mi Perfil')
+        link = self.browser.find_element_by_id('id_detalle2')
         link.click()
 
-        self.assertIsNotNone(self.browser.find_element_by_link_text('Imagen de Perfil URL:'))
+        self.assertEqual('carro',self.browser.find_element_by_id('id_nombre').text,'Nombre invalido')
 
 
