@@ -71,6 +71,7 @@ class FunctionalTest(TestCase):
 
     def test_comentario(self):
         self.browser.get('http://localhost:8000/#/comments/5')
+        self.browser.implicitly_wait(1)
 
         user_email = self.browser.find_element_by_id('userEmail')
         user_email.send_keys('a@a.com')
