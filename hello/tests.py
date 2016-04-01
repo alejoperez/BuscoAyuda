@@ -17,11 +17,11 @@ class FunctionalTest(TestCase):
         self.browser.get('http://localhost:8000')
         self.assertIn('Busco Ayuda', self.browser.title)
 
-def test_register(self):
+    def test_register(self):
         self.browser.get('http://localhost:8000')
-        link = self.browser.find_element_by_link_text('Registrarte')
+        link = self.browser.find_element_by_id('id_register')
         link.click()
-
+        self.browser.implicitly_wait(3)
         name = self.browser.find_element_by_id('id_name')
         name.send_keys('ALejo')
 
@@ -41,7 +41,7 @@ def test_register(self):
         imageFileUrl.send_keys('http://evolvedms.com/images/ARP-Logo-EvolvedMS.jpg')
 
         username = self.browser.find_element_by_id('id_username')
-        #username.send_keys(''.join(random.choice(string.lowercase) for i in range(10)))
+        username.send_keys(''.join(random.choice(string.lowercase) for i in range(10)))
 
         password = self.browser.find_element_by_id('id_password')
         password.send_keys('password')
@@ -49,4 +49,4 @@ def test_register(self):
         self.browser.find_element_by_id('id_button_register').click()
         self.browser.implicitly_wait(3)
 
-        self.assertIsNone(self.browser.find_element_by_link_text('id_button_register').click())
+        self.assertIsNone(self.browser.find_element_by_id('id_button_register').click())
