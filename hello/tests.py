@@ -13,6 +13,11 @@ class FunctionalTest(TestCase):
     def tearDown(self):
         self.browser.quit()
 
+    def test_detalle(self):
+        self.browser.get('http://localhost:8000')
+        self.browser.find_element_by_id('id_detalle3').click()
+        self.assertEquals('ALejo',self.browser.find_element_by_id('id_name_detail').text,'Nombre mal')
+
     def test_title(self):
         self.browser.get('http://localhost:8000')
         self.assertIn('Busco Ayuda', self.browser.title)
@@ -50,3 +55,5 @@ class FunctionalTest(TestCase):
         self.browser.implicitly_wait(3)
 
         self.assertIsNone(self.browser.find_element_by_id('id_button_register').click())
+
+
