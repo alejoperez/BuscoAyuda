@@ -15,8 +15,10 @@ class FunctionalTest(TestCase):
 
     def test_detalle(self):
         self.browser.get('http://localhost:8000')
-        self.browser.find_element_by_id('id_detalle3').click()
-        self.assertEquals('ALejo',self.browser.find_element_by_id('id_name_detail').text,'Nombre mal')
+        self.browser.implicitly_wait(5)
+        self.browser.find_element_by_id('id_detalle5').click()
+        self.browser.implicitly_wait(3)
+        self.assertEquals('http://localhost:8000/#/detail/5',self.browser.current_url,'url mal')
 
     def test_title(self):
         self.browser.get('http://localhost:8000')
