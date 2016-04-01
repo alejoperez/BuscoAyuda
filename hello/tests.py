@@ -8,31 +8,11 @@ from selenium import webdriver
 
 class FunctionalTest(TestCase):
     def setUp(self):
-        self.browser = webdriver.Firefox()
+        self.browser = webdriver.Chrome()
+        # self.browser = webdriver.Firefox()
 
     def tearDown(self):
         self.browser.quit()
-
-    def test_login(self):
-        self.browser.get('http://localhost:8000/#/login')
-
-        name = self.browser.find_element_by_id('username')
-        name.send_keys('alejo2')
-
-        name = self.browser.find_element_by_id('password')
-        name.send_keys('alejandro')
-
-        self.browser.find_element_by_id('id_login').click()
-        self.browser.implicitly_wait(5)
-
-        self.assertEquals('http://localhost:8000/#/login',self.browser.current_url,'login mal')
-
-    def test_detalle(self):
-        self.browser.get('http://localhost:8000')
-        self.browser.implicitly_wait(5)
-        self.browser.find_element_by_id('id_detalle5').click()
-        self.browser.implicitly_wait(3)
-        self.assertEquals('http://localhost:8000/#/detail/5',self.browser.current_url,'url mal')
 
     def test_title(self):
         self.browser.get('http://localhost:8000')
@@ -68,8 +48,35 @@ class FunctionalTest(TestCase):
         password.send_keys('password')
 
         self.browser.find_element_by_id('id_button_register').click()
-        self.browser.implicitly_wait(3)
-
         self.assertIsNone(self.browser.find_element_by_id('id_button_register').click())
 
+    def test_detalle(self):
+        self.browser.get('http://localhost:8000')
+        self.browser.implicitly_wait(5)
+        self.browser.find_element_by_id('id_detalle5').click()
+        self.assertEquals('http://localhost:8000/#/detail/5', self.browser.current_url, 'url mal')
 
+    def test_login(self):
+        self.browser.get('http://localhost:8000/#/login')
+        self.browser.implicitly_wait(1)
+
+        name = self.browser.find_element_by_id('username')
+        name.send_keys('alejo2')
+
+        name = self.browser.find_element_by_id('password')
+        name.send_keys('alejandro')
+
+        self.browser.find_element_by_id('id_login').click()
+        self.assertEquals('http://localhost:8000/#/login', self.browser.current_url, 'login mal')
+
+    def test_comentario(self):
+        self.browser.get('http://localhost:8000/#/comments/5')
+
+        user_email = self.browser.find_element_by_id('userEmail')
+        user_email.send_keys('a@a.com')
+
+        comentario = self.browser.find_element_by_id('comment')
+        comentario.send_keys('Mi comentario de prueba')
+
+        self.browser.find_element_by_id('btnEnviar').click()
+        self.assertEquals('Enviando...', self.browser.find_element_by_id('areaMensaje').text, 'comentario mal')
