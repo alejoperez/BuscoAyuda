@@ -17,11 +17,15 @@ class FunctionalTest(TestCase):
         self.browser.get('http://localhost:8000/#/login')
 
         name = self.browser.find_element_by_id('username')
-        name.send_keys('username')
+        name.send_keys('alejo2')
 
         name = self.browser.find_element_by_id('password')
-        name.send_keys('password')
-        self.assertEquals('http://localhost:8000/#/independents',self.browser.current_url,'login mal')
+        name.send_keys('alejandro')
+
+        self.browser.find_element_by_id('id_login').click()
+        self.browser.implicitly_wait(5)
+
+        self.assertEquals('http://localhost:8000/#/login',self.browser.current_url,'login mal')
 
     def test_detalle(self):
         self.browser.get('http://localhost:8000')
