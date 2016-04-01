@@ -81,3 +81,14 @@ class FunctionalTest(TestCase):
 
         self.browser.find_element_by_id('btnEnviar').click()
         self.assertEquals('Enviando...', self.browser.find_element_by_id('areaMensaje').text, 'comentario mal')
+
+    def test_edicion(self):
+        self.test_login()
+
+        self.browser.find_element_by_id('id_perfil').click()
+
+        name = self.browser.find_element_by_id('name')
+        old_name = name.text
+        name.send_keys('alejo23')
+
+        self.assertNotEqual(old_name, self.browser.find_element_by_id('name'), 'edicion mal')
