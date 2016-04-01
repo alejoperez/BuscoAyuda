@@ -93,3 +93,11 @@ class FunctionalTest(TestCase):
         name.send_keys('alejo23')
 
         self.assertNotEqual(old_name, self.browser.find_element_by_id('name'), 'edicion mal')
+
+    def test_busqueda(self):
+        self.browser.get('http://localhost:8000')
+
+        last_name = self.browser.find_element_by_id('id_busqueda')
+        last_name.send_keys('alejo2')
+
+        self.assertIsNone(self.browser.find_element_by_id('id_detalle7').click())
