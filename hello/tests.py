@@ -4,6 +4,9 @@ from unittest import TestCase
 
 # Create your tests here.
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 
 class FunctionalTest(TestCase):
@@ -52,8 +55,16 @@ class FunctionalTest(TestCase):
 
     def test_detalle(self):
         self.browser.get('http://localhost:8000')
-        self.browser.implicitly_wait(5)
-        self.browser.find_element_by_id('id_detalle5').click()
+
+        id_detalle = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.ID, "id_detalle5"))
+        )
+        id_detalle.click()
+
+        WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.ID, "id_name_detail"))
+        )
+
         self.assertEquals('http://localhost:8000/#/detail/5', self.browser.current_url, 'url mal')
 
     def test_login(self):
