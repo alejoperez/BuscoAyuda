@@ -86,6 +86,7 @@ class FunctionalTest(TestCase):
         self.test_login()
 
         self.browser.find_element_by_id('id_perfil').click()
+        self.browser.implicitly_wait(1)
 
         name = self.browser.find_element_by_id('name')
         old_name = name.text
