@@ -96,6 +96,7 @@ class FunctionalTest(TestCase):
 
     def test_busqueda(self):
         self.browser.get('http://localhost:8000')
+        self.browser.implicitly_wait(1)
 
         last_name = self.browser.find_element_by_id('id_busqueda')
         last_name.send_keys('alejo2')
