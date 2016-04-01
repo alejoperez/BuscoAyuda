@@ -13,6 +13,16 @@ class FunctionalTest(TestCase):
     def tearDown(self):
         self.browser.quit()
 
+    def test_login(self):
+        self.browser.get('http://localhost:8000/#/login')
+
+        name = self.browser.find_element_by_id('username')
+        name.send_keys('username')
+
+        name = self.browser.find_element_by_id('password')
+        name.send_keys('password')
+        self.assertEquals('http://localhost:8000/#/independents',self.browser.current_url,'login mal')
+
     def test_detalle(self):
         self.browser.get('http://localhost:8000')
         self.browser.implicitly_wait(5)
