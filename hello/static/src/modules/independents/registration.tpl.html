@@ -6,15 +6,15 @@
                 <form id="formRegister" name="formRegister">
                     <div class="form-group">
                         <label class="control-label" for="name">Nombre:</label>
-                        <input type="text" id="name" name="name" class="form-control" value="{{ name }}" ng-required="true" required="true">
+                        <input type="text" id="id_name" name="name" class="form-control" value="{{ name }}" ng-required="true" required="true">
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="last_name">Apellido:</label>
-                        <input type="text" id="last_name" name="last_name" class="form-control" value="{{ name }}" required="true">
+                        <input type="text" id="id_last_name" name="last_name" class="form-control" value="{{ name }}" required="true">
                     </div>
                     <div class="form-group">
                         <label for="job">Tipo de Servicio:</label>
-                        <select class="form-control" id="job" required="true">
+                        <select class="form-control" id="id_job" required="true">
                             <option ng-repeat="record in jobs">
                                 {{record.fields.jobName}}
                             </option>
@@ -22,29 +22,29 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="years_of_experience">Años de Experiencia:</label>
-                        <input type="number" id="years_of_experience" min="0" name="years_of_experience" class="form-control" value="{{ name }}" required="true">
+                        <input type="number" id="id_years_of_experience" min="0" name="years_of_experience" class="form-control" value="{{ name }}" required="true">
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="phone_number">Teléfono:</label>
-                        <input type="text" id="phone_number" name="phone_number" class="form-control" value="{{ name }}" required="true">
+                        <input type="text" id="id_phone_number" name="phone_number" class="form-control" value="{{ name }}" required="true">
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="email">E-mail:</label>
-                        <input type="email" id="email" name="email" class="form-control" value="{{ name }}" required="true">
+                        <input type="email" id="id_email" name="email" class="form-control" value="{{ name }}" required="true">
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="name">Imagen:</label>
-                        <input type="text" id="imageFileUrl" name="imageFileUrl" class="form-control" value="{{ name }}" required="true">
+                        <input type="text" id="id_imageFileUrl" name="imageFileUrl" class="form-control" value="{{ name }}" required="true">
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="name">Usuario:</label>
-                        <input type="text" id="username" name="username" class="form-control" value="{{ name }}" required="true">
+                        <input type="text" id="id_username" name="username" class="form-control" value="{{ name }}" required="true">
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="name">Contraseña:</label>
-                        <input type="password" id="password" name="password" class="form-control" value="{{ name }}" required="true">
+                        <input type="password" id="id_password" name="password" class="form-control" value="{{ name }}" required="true">
                     </div>
-                    <button type="submit" ng-disabled="formRegister.$invalid" class="btn btn-primary" ng-click = "ctrl.registerIndependent()">Registrarse</button>
+                    <button id="id_button_register" type="submit" ng-disabled="formRegister.$invalid" class="btn btn-primary" ng-click = "ctrl.registerIndependent()">Registrarse</button>
                     <a href="#/independents" class="btn btn-default">Volver</a>
                 </form>
 
